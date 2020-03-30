@@ -1,33 +1,46 @@
 package fr.formation.service;
 
 import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import fr.formation.models.Reservation;
 
+import fr.formation.repository.IReservationRepository;
+@Service
 public class ReservationService implements IReservationService{
-
+@Autowired
+	IReservationRepository reservationrepository;
 	@Override
 	public List<Reservation> getAllReservation() {
-		// TODO Auto-generated method stub
-		return null;
+return reservationrepository.findAll();
 	}
 
 	@Override
 	public Reservation getReservationById(long id) {
-		// TODO Auto-generated method stub
-		return null;
+		Optional<Reservation> Reservation1 =reservationrepository.findById(id);
+		Reservation Reservation = new Reservation();
+		if(Reservation1.isPresent()) {
+			Reservation=Reservation1.get()
+;		}
+		return Reservation;
 	}
 
 	@Override
 	public Reservation createReservation(Reservation reservation) {
-		// TODO Auto-generated method stub
-		return null;
+return reservationrepository.save(reservation);
 	}
 
 	@Override
 	public long deleteReservation(long id) {
-		// TODO Auto-generated method stub
-		return 0;
+		try {
+			reservationrepository.deleteById(id);
+		} catch (Exception e) {
+			return 0;
+		}
+		return 1;
 	}
 
 }

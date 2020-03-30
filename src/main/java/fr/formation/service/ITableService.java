@@ -2,7 +2,9 @@ package fr.formation.service;
 
 import java.util.List;
 
-import javax.persistence.Table;
+import fr.formation.models.Table;
+
+
 
 
 

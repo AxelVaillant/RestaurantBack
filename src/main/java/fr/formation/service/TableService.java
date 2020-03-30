@@ -1,39 +1,53 @@
 package fr.formation.service;
 
 import java.util.List;
+import java.util.Optional;
 
-import javax.persistence.Table;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+import fr.formation.models.Table;
+
+import fr.formation.repository.ITableRepository;
+
+
+@Service
 public class TableService implements ITableService {
-
+	@Autowired
+	ITableRepository tablerepository;
 	@Override
 	public List<Table> getAllTable() {
-		// TODO Auto-generated method stub
-		return null;
+		return tablerepository.findAll();
 	}
 
 	@Override
 	public fr.formation.models.Table getTableById(long id) {
-		// TODO Auto-generated method stub
-		return null;
+		Optional<Table> Table1 =tablerepository.findById(id);
+		Table Table = new Table();
+		if(Table1.isPresent()) {
+			Table=Table1.get()
+;		}
+		return Table;
 	}
 
 	@Override
 	public fr.formation.models.Table createTable(fr.formation.models.Table table) {
-		// TODO Auto-generated method stub
-		return null;
+	return tablerepository.save(table);
 	}
 
 	@Override
 	public long deleteTable(long id) {
-		// TODO Auto-generated method stub
-		return 0;
+		try {
+			tablerepository.deleteById(id);
+		} catch (Exception e) {
+			return 0;
+		}
+		return 1;
 	}
 
 	@Override
 	public fr.formation.models.Table updateTable(fr.formation.models.Table table) {
-		// TODO Auto-generated method stub
-		return null;
+		return tablerepository.save(table);
 	}
 
 }

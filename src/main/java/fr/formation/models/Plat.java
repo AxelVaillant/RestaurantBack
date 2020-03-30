@@ -8,6 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+
 @Entity
 public class Plat {
 	@Id
@@ -20,6 +21,8 @@ public class Plat {
 	@ManyToOne
 	@JoinColumn(name="commande")
 	private Commande commande;
+
+
 	public Plat(long idplat, String nomplat, int prixplat, Commande commande) {
 		super();
 		this.idplat = idplat;
@@ -49,6 +52,7 @@ public class Plat {
 	public void setPrixplat(int prixplat) {
 		this.prixplat = prixplat;
 	}
+	
 	public Commande getCommande() {
 		return commande;
 	}
@@ -60,6 +64,7 @@ public class Plat {
 		return "Plat [idplat=" + idplat + ", nomplat=" + nomplat + ", prixplat=" + prixplat + ", commande=" + commande
 				+ "]";
 	}
+
 	
 	
 }

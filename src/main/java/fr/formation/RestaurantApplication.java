@@ -17,19 +17,20 @@ import fr.formation.service.IUserService;
 public class RestaurantApplication implements CommandLineRunner{
 	
 	@Autowired
-	IUserService userservice;
+	private IUserService userservice;
 	@Autowired
-	ITableService tableservice;
+	private ITableService tableservice;
 	@Autowired
-	IRoleService roleservice;
+	private IRoleService roleservice;
 	@Autowired
-	IReservationService reservationservice;
+	private IReservationService reservationservice;
 	@Autowired
-	IPlatService platservice;
+	private IPlatService platservice;
 	@Autowired
-	IFactureService factureservice;
+	private IFactureService factureservice;
 	@Autowired
-	ICommandeService commandeservice;
+	private ICommandeService commandeservice;
+
 
 	public static void main(String[] args) {
 		SpringApplication.run(RestaurantApplication.class, args);
