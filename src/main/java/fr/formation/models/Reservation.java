@@ -1,5 +1,6 @@
 package fr.formation.models;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -18,7 +19,7 @@ public class Reservation {
 	@Column(name="id_reservation")
 	private long idreservation;
 	private int nombre;
-	private Date datereservation;
+	private LocalDate datereservation;
 	
 	@OneToOne
 	@JoinColumn(name="client")
@@ -28,7 +29,7 @@ public class Reservation {
 	@JoinColumn(name="r_table")
 	private Table table;
 
-	public Reservation(long idreservation, int nombre, Date datereservation, User client, Table table) {
+	public Reservation(long idreservation, int nombre, LocalDate datereservation, User client, Table table) {
 		super();
 		this.idreservation = idreservation;
 		this.nombre = nombre;
@@ -65,10 +66,10 @@ public class Reservation {
 		this.table = table;
 	}
 	
-	public Date getDatereservation() {
+	public LocalDate getDatereservation() {
 		return datereservation;
 	}
-	public void setDatereservation(Date datereservation) {
+	public void setDatereservation(LocalDate datereservation) {
 		this.datereservation = datereservation;
 	}
 	@Override

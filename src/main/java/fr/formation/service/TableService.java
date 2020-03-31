@@ -1,5 +1,6 @@
 package fr.formation.service;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -48,6 +49,12 @@ public class TableService implements ITableService {
 	@Override
 	public fr.formation.models.Table updateTable(fr.formation.models.Table table) {
 		return tablerepository.save(table);
+	}
+
+	@Override
+	public boolean isAvailable(LocalDate datereservation) {
+		
+		return true;
 	}
 
 }

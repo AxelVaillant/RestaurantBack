@@ -1,5 +1,6 @@
 package fr.formation.controller;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,8 +35,8 @@ public class ReservationController {
 	}
 
 	@PostMapping("/save")
-	public Reservation createReservation(@RequestBody Reservation reservation) {
-		return reservationservice.createReservation(reservation);
+	public boolean createReservation(@RequestBody Reservation reservation,@RequestBody LocalDate datereservation) {
+		return reservationservice.createReservation(reservation,datereservation);
 	}
 	
 	@PostMapping("/delete/{id}")
