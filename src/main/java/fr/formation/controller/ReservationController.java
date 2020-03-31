@@ -35,8 +35,8 @@ public class ReservationController {
 	}
 
 	@PostMapping("/save")
-	public boolean createReservation(@RequestBody Reservation reservation,@RequestBody LocalDate datereservation) {
-		return reservationservice.createReservation(reservation,datereservation);
+	public boolean createReservation(@RequestBody Reservation reservation) {
+		return reservationservice.createReservation(reservation);
 	}
 	
 	@PostMapping("/delete/{id}")

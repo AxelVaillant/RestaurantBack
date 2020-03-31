@@ -33,19 +33,34 @@ return reservationrepository.findAll();
 	}
 
 	@Override
-	public boolean createReservation(Reservation reservation,LocalDate datereservation) {
+	public boolean createReservation(Reservation reservation) {
 		Table table =null;
-		List<Table> tables = new ArrayList<Table>();
-		for(Table t :tables  ) {
-			if(tableservice.isAvailable(datereservation)) {
-				table=t;
+		List<Table> tlist=tableservice.getAllTable();
+		for (Table t : tlist) {
+			if(tableservice.isAvailable(reservation.getDatereservation())) {
+				table = t;
 				break;
-			}}
-			if(table!= null) {
-				reservationrepository.save(reservation);
-				return true;
 			}
-			return false;
+		}
+		if(table!=null) {
+			reservationrepository.save(reservation);
+			return true;
+		}
+		
+		return false;
+		
+//		Table table =null;
+//		List<Table> tables = new ArrayList<Table>();
+//		for(Table t :tables  ) {
+//			if(tableservice.isAvailable(datereservation)) {
+//				table=t;
+//				break;
+//			}}
+//			if(table!= null) {
+//				reservationrepository.save(reservation);
+//				return true;
+//			}
+//			return false;
 			
 		}
 

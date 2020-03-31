@@ -1,6 +1,7 @@
 package fr.formation.service;
 
 import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -52,7 +53,7 @@ public class TableService implements ITableService {
 	}
 
 	@Override
-	public boolean isAvailable(LocalDate datereservation) {
+	public boolean isAvailable(Date datereservation) {
 		
 		return true;
 	}

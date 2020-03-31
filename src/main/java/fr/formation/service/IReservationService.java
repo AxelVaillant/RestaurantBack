@@ -11,7 +11,7 @@ public interface IReservationService {
 
 	public List<Reservation> getAllReservation();
 	public Reservation getReservationById(long id);
-	public boolean createReservation(Reservation reservation,LocalDate datereservation);
+	public boolean createReservation(Reservation reservation);
 	public long deleteReservation(long id);
 
 }

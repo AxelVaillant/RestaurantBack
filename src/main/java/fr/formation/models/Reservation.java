@@ -19,7 +19,7 @@ public class Reservation {
 	@Column(name="id_reservation")
 	private long idreservation;
 	private int nombre;
-	private LocalDate datereservation;
+	private Date datereservation;
 	
 	@OneToOne
 	@JoinColumn(name="client")
@@ -28,8 +28,8 @@ public class Reservation {
 	@OneToOne
 	@JoinColumn(name="r_table")
 	private Table table;
-
-	public Reservation(long idreservation, int nombre, LocalDate datereservation, User client, Table table) {
+	
+	public Reservation(long idreservation, int nombre, Date datereservation, User client, Table table) {
 		super();
 		this.idreservation = idreservation;
 		this.nombre = nombre;
@@ -66,10 +66,10 @@ public class Reservation {
 		this.table = table;
 	}
 	
-	public LocalDate getDatereservation() {
+	public Date getDatereservation() {
 		return datereservation;
 	}
-	public void setDatereservation(LocalDate datereservation) {
+	public void setDatereservation(Date datereservation) {
 		this.datereservation = datereservation;
 	}
 	@Override
