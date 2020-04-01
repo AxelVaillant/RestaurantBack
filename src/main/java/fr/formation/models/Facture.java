@@ -14,7 +14,7 @@ public class Facture {
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
 	@Column(name="id_facture")
 	private long idfacture;
-	private int montant;
+	private double montant;
 	
 	@OneToOne
 	@JoinColumn(name="reservation")
@@ -23,7 +23,7 @@ public class Facture {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Facture(long idfacture, int montant, Reservation reservation) {
+	public Facture(long idfacture, double montant, Reservation reservation) {
 		super();
 		this.idfacture = idfacture;
 		this.montant = montant;
@@ -35,10 +35,10 @@ public class Facture {
 	public void setIdfacture(long idfacture) {
 		this.idfacture = idfacture;
 	}
-	public int getMontant() {
+	public double getMontant() {
 		return montant;
 	}
-	public void setMontant(int montant) {
+	public void setMontant(double montant) {
 		this.montant = montant;
 	}
 	public Reservation getReservation() {

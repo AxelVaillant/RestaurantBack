@@ -22,7 +22,7 @@ public class Table {
 	@OneToOne
 	@JoinColumn(name="serveur")
 	private User serveur;
-	private boolean disponible;
+	private boolean disponible=true;
 	public Table(long idtable, int places, User serveur, boolean disponible) {
 		super();
 		this.idtable = idtable;

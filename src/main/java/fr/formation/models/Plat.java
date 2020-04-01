@@ -16,14 +16,14 @@ public class Plat {
 	@Column(name="id_plat")
 	private long idplat;
 	private String nomplat;
-	private int prixplat;
+	private double prixplat;
 	
 	@ManyToOne
 	@JoinColumn(name="commande")
 	private Commande commande;
 
 
-	public Plat(long idplat, String nomplat, int prixplat, Commande commande) {
+	public Plat(long idplat, String nomplat, double prixplat, Commande commande) {
 		super();
 		this.idplat = idplat;
 		this.nomplat = nomplat;
@@ -46,10 +46,10 @@ public class Plat {
 	public void setNomplat(String nomplat) {
 		this.nomplat = nomplat;
 	}
-	public int getPrixplat() {
+	public double getPrixplat() {
 		return prixplat;
 	}
-	public void setPrixplat(int prixplat) {
+	public void setPrixplat(double prixplat) {
 		this.prixplat = prixplat;
 	}
 	
