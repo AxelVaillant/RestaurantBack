@@ -12,4 +12,5 @@ public interface IElementCommandeService {
 	public long deleteElementCommande(long id);
 	public ElementCommande updateElementCommande(ElementCommande elementcommande);
 	public ElementCommande recupPlat(ElementCommande elementcommande);
+
 }

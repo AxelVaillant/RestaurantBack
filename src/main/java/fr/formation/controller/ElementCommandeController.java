@@ -59,6 +59,7 @@ IElementCommandeService ElementCommandeservice;
 	public ElementCommande updateElementCommande(@PathVariable long id, @RequestBody ElementCommande ElementCommande) {
 		ElementCommande ElementCommandemodif=ElementCommandeservice.getElementCommandeById(id);
 		ElementCommandemodif.setPlat(ElementCommande.getPlat());
+		ElementCommandemodif.setCommande(ElementCommande.getCommande());
 
 
 		return ElementCommandeservice.updateElementCommande(ElementCommande);

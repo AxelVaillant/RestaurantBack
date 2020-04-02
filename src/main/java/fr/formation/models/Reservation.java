@@ -77,6 +77,10 @@ public class Reservation {
 		return "Reservation [idreservation=" + idreservation + ", nombre=" + nombre + ", datereservation="
 				+ datereservation + ", client=" + client + ", table=" + table + "]";
 	}
+	public long getTable(long idtable) {
+		// TODO Auto-generated method stub
+		return 1;
+	}
 
 	
 	

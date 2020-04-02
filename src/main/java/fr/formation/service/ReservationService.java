@@ -1,7 +1,14 @@
 package fr.formation.service;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -34,30 +41,30 @@ return reservationrepository.findAll();
 
 	@Override
 	public boolean createReservation(Reservation reservation) {
-//		Table table =null;
-//		List<Table> tlist=tableservice.getAllTable();
-//		for (Table t : tlist) {
-//			if(tableservice.isAvailable(reservation.getDatereservation())) {
-//				table = t;
-//				break;
-//			}
-//		}
-//		if(table!=null) {
-//			reservationrepository.save(reservation);
-//			return true;
-//		}
-//		
-//		return false;
-		
-		if(reservation.getTable().isDisponible()==true) {
-			reservationrepository.save(reservation);
-			reservation.getTable().setDisponible(false);
-			return true;
-		}
-		return false;
-			
-		}
 
+		try {
+			
+			Reservation res= new Reservation();
+			res=reservationrepository.resa(reservation.getDatereservation(), reservation.getTable());	
+			if(res==null) {
+				reservationrepository.save(reservation);
+				System.err.println("Resa effecutée 1");
+				return true;
+			}
+			else { System.err.println("Resa impossible");
+			return false;}
+//			else if (res!=null) {
+//				if(res.getTable()!=reservation.getTable() || res.getDatereservation()!=reservation.getDatereservation()) {
+//					reservationrepository.save(reservation);
+//					System.err.println("Resa effecutée 2");
+//				}
+//				else System.err.println("Resa impossible");
+//			}
+
+		} catch (Exception e) {
+			return false;
+		}
+	}
 
 	@Override
 	public long deleteReservation(long id) {
