@@ -2,6 +2,7 @@ package fr.formation.service;
 
 import java.util.List;
 
+import fr.formation.models.Commande;
 import fr.formation.models.ElementCommande;
 
 public interface IElementCommandeService {
@@ -12,5 +13,6 @@ public interface IElementCommandeService {
 	public long deleteElementCommande(long id);
 	public ElementCommande updateElementCommande(ElementCommande elementcommande);
 	public ElementCommande recupPlat(ElementCommande elementcommande);
-
+	public List<ElementCommande> getAllByCommande(ElementCommande elementcommande);
+	public List<ElementCommande> filtre(long id );
 }

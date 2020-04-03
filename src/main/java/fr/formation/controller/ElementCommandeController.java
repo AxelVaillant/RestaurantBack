@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import fr.formation.models.Commande;
 import fr.formation.models.ElementCommande;
 import fr.formation.models.Plat;
 import fr.formation.service.IElementCommandeService;
@@ -27,8 +28,19 @@ IElementCommandeService ElementCommandeservice;
 	IPlatService platservice;
 	
 	@GetMapping("/all")
-	public List<ElementCommande> getAllElementCommande(){
+	public List<ElementCommande> getAllElementCommandes(){
 		return ElementCommandeservice.getAllElementCommande();
+	}
+	
+	@GetMapping("/allby")
+	public List<ElementCommande> getAllByCommande(@RequestBody ElementCommande ElementCommande){
+		return ElementCommandeservice.getAllByCommande(ElementCommande);
+	}
+	
+	
+	@GetMapping("/filtre/{id}")
+	public List<ElementCommande> getFiltre(@PathVariable long id){
+		return ElementCommandeservice.filtre(id);
 	}
 	
 	@GetMapping("/byid/{id}")
@@ -64,4 +76,6 @@ IElementCommandeService ElementCommandeservice;
 
 		return ElementCommandeservice.updateElementCommande(ElementCommande);
 	}
+	
+
 }

@@ -22,18 +22,22 @@ public class Commande {
 	@JoinColumn(name="reservation")
 	private Reservation reservation;
 	
-
+	private double total;
 	public Commande() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Commande(long idcommande, Reservation reservation) {
+
+
+	public Commande(long idcommande, Reservation reservation, double total) {
 		super();
 		this.idcommande = idcommande;
 		this.reservation = reservation;
-
+		this.total = total;
 	}
+
+
 
 	public long getIdcommande() {
 		return idcommande;
@@ -50,10 +54,26 @@ public class Commande {
 	
 
 
+	public double getTotal() {
+		return total;
+	}
+
+
+
+	public void setTotal(double total) {
+		this.total = total;
+	}
+
+
+
 	@Override
 	public String toString() {
-		return "Commande [idcommande=" + idcommande + ", reservation=" + reservation + "]";
+		return "Commande [idcommande=" + idcommande + ", reservation=" + reservation + ", total=" + total + "]";
 	}
+
+
+
+
 
 
 	

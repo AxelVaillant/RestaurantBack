@@ -17,17 +17,17 @@ public class Facture {
 	private double montant;
 	
 	@OneToOne
-	@JoinColumn(name="reservation")
-	private Reservation reservation;
+	@JoinColumn(name="commande")
+	private Commande commande;
 	public Facture() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Facture(long idfacture, double montant, Reservation reservation) {
+	public Facture(long idfacture, double montant, Commande commande) {
 		super();
 		this.idfacture = idfacture;
 		this.montant = montant;
-		this.reservation = reservation;
+		this.commande = commande;
 	}
 	public long getIdfacture() {
 		return idfacture;
@@ -41,15 +41,16 @@ public class Facture {
 	public void setMontant(double montant) {
 		this.montant = montant;
 	}
-	public Reservation getReservation() {
-		return reservation;
+
+	public Commande getCommande() {
+		return commande;
 	}
-	public void setReservation(Reservation reservation) {
-		this.reservation = reservation;
+	public void setCommande(Commande commande) {
+		this.commande = commande;
 	}
 	@Override
 	public String toString() {
-		return "Facture [idfacture=" + idfacture + ", montant=" + montant + ", reservation=" + reservation + "]";
+		return "Facture [idfacture=" + idfacture + ", montant=" + montant + ", commande=" + commande + "]";
 	}
 	
 	
