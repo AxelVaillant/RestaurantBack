@@ -7,13 +7,13 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import fr.formation.models.Commande;
-
+import fr.formation.models.User;
 import fr.formation.service.ICommandeService;
 
 @RestController
@@ -38,6 +38,11 @@ public class CommandeController {
 		return commandeservice.createCommande(commande);
 	}
 	
+	@PutMapping("/total/{id}")
+	public Commande calculTotal(@PathVariable long id , @RequestBody Commande commande) {
+		Commande com=commandeservice.getCommandeById(id);
+		com.setTotal(commandeservice.calculPrix(id));
+		return commandeservice.createCommande(com);	}
 
 
 }

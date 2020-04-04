@@ -12,4 +12,5 @@ public interface ICommandeService {
 	public Commande getCommandeById(long id);
 	public Commande createCommande(Commande commande);
 	public Commande updateCommande(Commande commande);
+	public double calculPrix( long id);
 }

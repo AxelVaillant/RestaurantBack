@@ -11,7 +11,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import fr.formation.models.Commande;
 import fr.formation.models.Facture;
+import fr.formation.service.ICommandeService;
 import fr.formation.service.IFactureService;
 
 @RestController
@@ -33,6 +35,8 @@ public class FactureController {
 
 	@PostMapping("/save")
 	public Facture createFacture(@RequestBody Facture facture) {
+
+		facture.setMontant(facture.getCommande().getTotal());
 		return factureservice.createFacture(facture);
 	}
 }
