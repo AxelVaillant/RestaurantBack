@@ -5,13 +5,22 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
+import org.springframework.context.annotation.Bean;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import fr.formation.models.User;
 import fr.formation.repository.IUserRepository;
 @Service
 public class UserService implements IUserService{
 	@Autowired
 	IUserRepository userrepository;
+	
+	@Autowired
+	BCryptPasswordEncoder cryptageService;
+	@Bean
+	BCryptPasswordEncoder passwordEncoder() {
+
+	    return new BCryptPasswordEncoder();
+	}
 	@Override
 	public List<User> getAllUser() {
 	return userrepository.findAll();
@@ -29,6 +38,8 @@ public class UserService implements IUserService{
 
 	@Override
 	public User createUser(User user) {
+		if(userrepository.findByNomuser(user.getNomuser())== null) {
+		user.setPassword(cryptageService.encode( user.getPassword()));}
 		return userrepository.save(user);
 	}
 
@@ -44,13 +55,20 @@ public class UserService implements IUserService{
 
 	@Override
 	public User updateUser(User user) {
+		user.setPassword(cryptageService.encode( user.getPassword()));
 		return userrepository.save(user);
 	}
 
 	@Override
 	public User identification(String nomuser, String password) {
-		// TODO Auto-generated method stub
-		return null;
+		User  u= userrepository.findByNomuser(nomuser);
+		if (u!= null) {
+		if(cryptageService.matches(password, u.getPassword())) {
+			System.out.println("Access granted ");
+			return u;
+		}}
+		System.err.println("Access denied");
+		return new User();
 	}
 
 }

@@ -53,4 +53,9 @@ public class UserController {
 		return userservice.updateUser(user);
 	}
 	
+	@PostMapping("/login")
+	public User login (@RequestBody User user) {
+		return userservice.identification(user.getNomuser(),user.getPassword());
+	}
+	
 }

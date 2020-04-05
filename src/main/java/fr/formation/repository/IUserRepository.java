@@ -6,4 +6,5 @@ import fr.formation.models.User;
 
 public interface IUserRepository extends JpaRepository<User, Long>{
 
+	public User findByNomuser(String nomuser);
 }
