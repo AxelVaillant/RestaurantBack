@@ -1,5 +1,6 @@
 package fr.formation.service;
 
+import java.awt.print.Printable;
 import java.util.List;
 import java.util.Optional;
 
@@ -40,6 +41,7 @@ return platrepository.save(plat);
 		try {
 			platrepository.deleteById(id);
 		} catch (Exception e) {
+			
 			return 0;
 		}
 		return 1;

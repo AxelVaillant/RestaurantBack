@@ -63,7 +63,7 @@ public class ElementCommandeService implements IElementCommandeService {
 
 	@Override
 	public List<ElementCommande> getAllByCommande(ElementCommande elementcommande) {
-		return elcorepo.getAllByCommande(elementcommande.getCommande());
+		return elcorepo.findByCommande(elementcommande.getCommande());
 	}
 
 	@Override
