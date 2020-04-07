@@ -17,5 +17,5 @@ public interface ITableService {
 	public fr.formation.models.Table createTable(fr.formation.models.Table table);
 	public long deleteTable(long id);
 	public fr.formation.models.Table updateTable(fr.formation.models.Table table);
-	public boolean isAvailable(Date datereservation);
+
 }

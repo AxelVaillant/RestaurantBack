@@ -32,7 +32,7 @@ IElementCommandeService ElementCommandeservice;
 		return ElementCommandeservice.getAllElementCommande();
 	}
 	
-	@GetMapping("/allby")
+	@PostMapping("/allby")
 	public List<ElementCommande> getAllByCommande(@RequestBody ElementCommande ElementCommande){
 		return ElementCommandeservice.getAllByCommande(ElementCommande);
 	}

@@ -52,10 +52,6 @@ public class TableService implements ITableService {
 		return tablerepository.save(table);
 	}
 
-	@Override
-	public boolean isAvailable(Date datereservation) {
-		
-		return true;
-	}
+
 
 }

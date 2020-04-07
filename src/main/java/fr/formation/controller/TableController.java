@@ -46,7 +46,7 @@ public class TableController {
 	public Table updateTable(@PathVariable long id, @RequestBody Table table) {
 		Table tablemodif=tableservice.getTableById(id);
 		tablemodif.setServeur(table.getServeur());
-		tablemodif.setDisponible(table.isDisponible());
+		tablemodif.setDisponible(table.GetDisponible());
 
 		return tableservice.updateTable(table);
 	}

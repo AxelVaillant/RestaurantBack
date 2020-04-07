@@ -52,7 +52,7 @@ public class Table {
 	public void setServeur(User serveur) {
 		this.serveur = serveur;
 	}
-	public boolean isDisponible() {
+	public boolean GetDisponible() {
 		return disponible;
 	}
 	public void setDisponible(boolean disponible) {
